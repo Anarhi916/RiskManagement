@@ -88,11 +88,18 @@ annotate service.Risks with @(
             $Type : 'UI.DataField',
             Label : '{i18n>Priority}',
             Value : prio_code,
+            Criticality : PrioCriticality,
         },
         {
             $Type : 'UI.DataField',
             Label : '{i18n>Impact}',
             Value : impact,
+            Criticality : criticality,
+        },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : 'bp/@Communication.Contact#contact',
+            Label : '{i18n>BusinessPartner}',
         },
     ],
     UI.SelectionFields : [
@@ -126,6 +133,7 @@ annotate service.Risks with @(
             {
                 $Type : 'UI.DataField',
                 Value : prio_code,
+                Criticality : PrioCriticality,
             },
             {
                 $Type : 'UI.DataField',
@@ -136,6 +144,12 @@ annotate service.Risks with @(
                 $Type : 'UI.DataField',
                 Value : impact,
                 Label : '{i18n>Impact}',
+                Criticality : criticality,
+            },
+            {
+                $Type : 'UI.DataFieldForAnnotation',
+                Target : 'bp/@Communication.Contact#contact1',
+                Label : '{i18n>BusinessPartner}',
             },
         ],
     },
@@ -184,10 +198,27 @@ annotate service.Risks with {
 };
 
 annotate service.Risks with {
-    prio @Common.Label : '{i18n>Priority}'
+    prio @(
+        Common.Label : '{i18n>Priority}',
+        Common.Text : {
+            $value : prio.descr,
+            ![@UI.TextArrangement] : #TextOnly
+        },
+    )
 };
 
 annotate service.Mitigations with {
     ID @Common.Text : descr
 };
+
+annotate service.BusinessPartners with @(
+    Communication.Contact #contact : {
+        $Type : 'Communication.ContactType',
+        fn : FullName,
+    },
+    Communication.Contact #contact1 : {
+        $Type : 'Communication.ContactType',
+        fn : FullName,
+    },
+);
 
