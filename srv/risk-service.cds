@@ -2,23 +2,8 @@
 using {riskmanagement as rm} from '../db/schema';
 
 @path: 'service/risk'
-service RiskService @(requires: 'authenticated-user') {
-    entity Risks @(restrict: [
-        {
-            grant: 'READ',
-            to   : 'RiskViewer'
-        },
-        {
-            grant: [
-                'READ',
-                'WRITE',
-                'UPDATE',
-                'UPSERT',
-                'DELETE'
-            ], // Allowing CDS events by explicitly mentioning them
-            to   : 'RiskManager'
-        }
-    ])                      as projection on rm.Risks;
+service RiskService  {
+    entity Risks      as projection on rm.Risks;
 
     annotate Risks with @odata.draft.enabled;
 
