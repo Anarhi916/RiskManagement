@@ -42,8 +42,8 @@ modules:
     path: app
     parameters:
       keep-existing-routes: true
-      disk-quota: 256M
-      memory: 256M
+      disk-quota: 1G
+      memory: 1G
     requires:
       - name: srv-api
         group: destinations

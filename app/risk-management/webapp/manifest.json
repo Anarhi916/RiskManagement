@@ -57,6 +57,15 @@
       "compact": true,
       "cozy": true
     },
+    "extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.fe.templates.ObjectPage.ObjectPageController": {
+						"controllerName": "riskmanagement.ext.controller.ObjectPageExt"
+					}
+				}
+      }
+		},
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
@@ -128,7 +137,21 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Risks"
+              "contextPath": "/Risks",
+              "content": {
+                "body": {
+                  "sections": {
+                    "CustomSection": {
+                      "template": "riskmanagement.ext.CustomSection",
+                      "title": "ToDo list",
+                      "position": {
+                        "placement": "AfterFacet", 
+                        "anchor": "GeneralInformation" 
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }

@@ -13,6 +13,12 @@
       "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {
+      "source": "^/external/(.*)$",
+      "target": "$1",
+      "destination": "PublicAPI",
+      "csrfProtection": false
+    },
+    {
       "source": "^/(.*)$",
       "target": "$1",
       "destination": "srv-api",

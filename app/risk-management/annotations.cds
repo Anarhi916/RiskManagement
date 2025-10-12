@@ -211,14 +211,5 @@ annotate service.Mitigations with {
     ID @Common.Text : descr
 };
 
-annotate service.BusinessPartners with @(
-    Communication.Contact #contact : {
-        $Type : 'Communication.ContactType',
-        fn : FullName,
-    },
-    Communication.Contact #contact1 : {
-        $Type : 'Communication.ContactType',
-        fn : FullName,
-    },
-);
+
 

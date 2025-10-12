@@ -20,7 +20,5 @@ service RiskService  {
 
     annotate Mitigations with @odata.draft.enabled;
 
-    // BusinessPartner
-    @readonly
-    entity BusinessPartners as projection on rm.BusinessPartners;
+    
 }
