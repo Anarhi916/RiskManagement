@@ -1,36 +1,57 @@
 <core:FragmentDefinition
   xmlns="sap.m"
   xmlns:core="sap.ui.core">
-  
-    <Table id="todosTable"
-           items="{
-             path: 'todo>/todos',
-             length: 5
-           }"
-           inset="false"
-           growing="false">
-      <headerToolbar>
-        <Toolbar>
-          <Title text="Tasks (first 5)" level="H4" />
-        </Toolbar>
-      </headerToolbar>
+    <VBox >
+      <Title level="H3" text="Consumption external service via destination" />
+      <Table id="todosTable"
+            items="{
+              path: 'todo>/todos',
+              length: 5
+            }"
+            inset="false"
+            growing="false">
+        <headerToolbar>
+          <Toolbar>
+            <Title text="Tasks (first 5)" level="H4" />
+          </Toolbar>
+        </headerToolbar>
 
-      <columns>
-        <Column>
-          <Text text="Task" />
-        </Column>
-        <Column>
-          <Text text="Status" />
-        </Column>
-      </columns>
+        <columns>
+          <Column>
+            <Text text="Task" />
+          </Column>
+          <Column>
+            <Text text="Status" />
+          </Column>
+        </columns>
 
-      <items>
-        <ColumnListItem>
-          <cells>
-            <Text text="{todo>title}" />
-            <Text text="{= ${todo>completed} ? 'Done' : 'Pending' }" />
-          </cells>
-        </ColumnListItem>
-      </items>
-    </Table>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{todo>title}" />
+              <Text text="{= ${todo>completed} ? 'Done' : 'Pending' }" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+      <Title level="H3" text="Consumption onPremise LeverX S4/Hana service" />
+      <Table id="BA"
+            items="{
+              path: 'onPremiseS4>/A_BusinessArea'
+            }"
+            inset="false">
+        <columns>
+          <Column>
+            <Text text="Task" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{onPremiseS4>BusinessArea}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </VBox>
 </core:FragmentDefinition>

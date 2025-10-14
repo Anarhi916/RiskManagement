@@ -19,6 +19,13 @@
       "csrfProtection": false
     },
     {
+      "source": "^/sap/(.*)$",
+      "target": "/sap/$1",
+      "destination": "US4",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
+    {
       "source": "^/(.*)$",
       "target": "$1",
       "destination": "srv-api",
